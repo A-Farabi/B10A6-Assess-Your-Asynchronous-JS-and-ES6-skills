@@ -7,11 +7,12 @@ const loadCategories = () =>{
 }
 
 const loadCategoryButton = (id) =>{
-    alert(id)
 
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => showAllPets(data.data))
+
+
 
 }
 
@@ -46,6 +47,8 @@ fetch('https://openapi.programming-hero.com/api/peddy/pets')
 const showAllPets = (allPets) => {
 
     const cardContainer = document.getElementById('cardContainer')
+
+    cardContainer.innerHTML = "";
 
     allPets.forEach(allpet => {
 
