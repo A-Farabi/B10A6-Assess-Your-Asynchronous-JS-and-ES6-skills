@@ -8,6 +8,11 @@ const loadCategories = () =>{
 
 const loadCategoryButton = (id) =>{
     alert(id)
+
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+    .then(res => res.json())
+    .then(data => console.log(data))
+
 }
 
 const displayCategory = (categories) => {
@@ -32,7 +37,7 @@ const displayCategory = (categories) => {
     });
 }
 
-loadCategories()
+
 
 fetch('https://openapi.programming-hero.com/api/peddy/pets')
     .then(res => res.json())
@@ -73,4 +78,4 @@ const showAllPets = (allPets) => {
 }
 
 
-
+loadCategories()
