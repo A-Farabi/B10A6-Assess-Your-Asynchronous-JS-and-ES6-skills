@@ -1,8 +1,14 @@
 // category fetching
 
-fetch('https://openapi.programming-hero.com/api/peddy/categories')
+const loadCategories = () =>{
+    fetch('https://openapi.programming-hero.com/api/peddy/categories')
     .then(res => res.json())
     .then(category => displayCategory(category.categories))
+}
+
+const loadCategoryButton = (id) =>{
+    alert(id)
+}
 
 const displayCategory = (categories) => {
     // console.log(categories);
@@ -11,11 +17,12 @@ const displayCategory = (categories) => {
 
     categories.forEach(element => {
         const { category_icon, category } = element
+        console.log(category);
         // create btn 
         const btnDiv = document.createElement('div')
         btnDiv.innerHTML = `
         
-        <button class="flex items-center space-x-2 p-3 rounded-lg border border-teal-400 bg-teal-100">
+        <button onclick="loadCategoryButton('${category}')" class="flex items-center space-x-2 p-3 rounded-lg border border-teal-400 bg-teal-100">
                   <img src="${category_icon}" alt="Cat" class="w-6 h-6" />
                   <span class="font-semibold">${category}</span>
                 </button>
@@ -25,6 +32,7 @@ const displayCategory = (categories) => {
     });
 }
 
+loadCategories()
 
 fetch('https://openapi.programming-hero.com/api/peddy/pets')
     .then(res => res.json())
@@ -63,3 +71,6 @@ const showAllPets = (allPets) => {
 
     })
 }
+
+
+
