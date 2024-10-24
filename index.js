@@ -1,16 +1,16 @@
 // category fetching
 
-const loadCategories = () =>{
+const loadCategories = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
-    .then(res => res.json())
-    .then(category => displayCategory(category.categories))
+        .then(res => res.json())
+        .then(category => displayCategory(category.categories))
 }
 
-const loadCategoryButton = (id) =>{
+const loadCategoryButton = (id) => {
 
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
-    .then(res => res.json())
-    .then(data => showAllPets(data.data))
+        .then(res => res.json())
+        .then(data => showAllPets(data.data))
 
 
 
@@ -49,6 +49,32 @@ const showAllPets = (allPets) => {
     const cardContainer = document.getElementById('cardContainer')
 
     cardContainer.innerHTML = "";
+
+    if (allPets.length == 0) {
+
+        cardContainer.innerHTML = `
+        
+        <div class="flex flex-col items-center justify-center h-screen bg-[#fffcfc] w-full">
+  <div class="flex flex-col items-center space-y-4">
+    <div class="w-24 h-24 bg-#6b639c p-6 rounded-full">
+      <img src="images/error.webp" alt="No information icon" />
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-800">
+      No Information Available
+    </h2>
+
+    <p class="text-gray-500 text-center max-w-xl">
+      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.
+    </p>
+  </div>
+</div>
+
+
+        `;
+
+    }
+
 
     allPets.forEach(allpet => {
 
