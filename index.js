@@ -26,6 +26,7 @@ const displayCategory = (categories) => {
         console.log(category);
         // create btn 
         const btnDiv = document.createElement('div')
+
         btnDiv.innerHTML = `
         
         <button onclick="loadCategoryButton('${category}')" class="flex items-center space-x-2 p-3 rounded-lg border border-teal-400 bg-teal-100">
