@@ -1,7 +1,7 @@
 # Peddy - Pet Adoption Platform
 
 ## 🔗 Links
-
+- [[Live Site on Surge](http://b10-a6-mazid-farabi.surge.sh)]
 
 
 Project descrpition: This is project for whom loves pet. Here They will find a variety category type to adopt for him/her. 
